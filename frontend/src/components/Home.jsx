@@ -1,9 +1,9 @@
 import React from 'react'
-
+import Introduction from './Introduction'
 const Home = () => {
   return (
-    <div>
-      Hi my name is Nitin
+    <div className='container mx-auto max-w-3xl mt-8'>
+      <Introduction />
     </div>
   )
 }
