@@ -25,5 +25,5 @@ const Header = () => {
     </div>
   )
 }
-hi
+
 export default Header
