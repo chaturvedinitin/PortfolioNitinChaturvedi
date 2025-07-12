@@ -9,7 +9,7 @@ import { CgFileDocument } from "react-icons/cg";
 import { PiTelegramLogoThin } from "react-icons/pi";
 
 const Introduction = () => {
-    const stackStyle = "text-sm bg-zinc-900 text-white px-2 p-1 border border-zinc-700 rounded-md mx-1";
+    const stackStyle = "text-[0.8vw] bg-zinc-800 text-white font-semibold p-[0.1vw] border border-zinc-700 rounded-md inline-flex items-center whitespace-nowrap";
     return (
         <div className='flex flex-col p-8'>
             <div className='flex'>
@@ -17,7 +17,7 @@ const Introduction = () => {
                     <span className='text-[3vw] font-bold'>Nitin Chaturvedi</span>
                     <span className='text-zinc-600 tracking-tighter'>A Full Stack Web Developer</span>
                 </div>
-                <div className='ml-auto'>
+                <div className='ml-auto border-t border-r rounded-e-3xl  border-t-teal-400 border-r-teal-400 p-2'>
                     <Link to="/">
                         <img src={Logo} alt="no images found" style={{ width: '5vw' }} />
                     </Link>
@@ -32,23 +32,32 @@ const Introduction = () => {
                     { name: 'Node.js', icon: <FaNodeJs />, style: 'text-green-400' }
                 ].map((item, index, arr) => (
                     <React.Fragment key={index}>
-                        <span className={`${stackStyle} inline-flex items-center whitespace-nowrap`}>
-                            <span className={`${item.style} inline-block align-middle mr-2 text-xl`}>
+                        <span className={`${stackStyle}`}>
+                            <span className={`${item.style} inline-block align-middle text-[1vw] m-[0.2vw]`}>
                                 {item.icon}
                             </span>
-                            {item.name}
+                            <span className='ml-2'>
+                                {item.name}
+                            </span>
                         </span>
                         {index < arr.length - 1 ? ', ' : '. '}
                     </React.Fragment>
                 ))}
                 I blend UI/UX precision with scalable backend development.
-                Enthusiastic about comptetive coding.
+                Enthusiastic about competitive coding.
             </div>
-            <div className='flex gap-2 justify-start items-center mt-8 '>
-                <div className='flex gap-2 justify-between border-1 rounded-md border-zinc-300 px-3 py-1'><CgFileDocument /><span>Resume</span></div>
-                <div className='flex gap-2 justify-between border-1 rounded-md border-zinc-300 px-3 py-1'>
-                    <PiTelegramLogoThin />
-                    <span>Get in touch</span>
+            <div className='flex gap-2 justify-start items-center mt-8 pl-[1vw]'>
+                <div className='flex gap-2 justify-between items-center border-1 rounded-md border-zinc-300 px-[0.5vw] py-[0.3vw]'>
+                    <div className='rotate-z-4'>
+                        <CgFileDocument />
+                    </div>
+                    <span className='text-[1vw]'>Resume</span>
+                </div>
+                <div className='flex gap-2 justify-between items-center bg-zinc-900 text-white border-1 rounded-md border-zinc-300 px-[0.5vw] py-[0.3vw]'>
+                    <div className=''>
+                        <PiTelegramLogoThin />
+                    </div>
+                    <span className='text-[1vw]'>Get in touch</span>
                 </div>
             </div>
         </div>
