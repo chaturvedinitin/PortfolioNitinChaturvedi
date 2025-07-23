@@ -4,7 +4,7 @@ import { MdDarkMode } from "react-icons/md"
 
 const Header = () => {
   return (
-    <div className="sticky top-0 z-50 bg-white/20 backdrop-blur-sm w-full">
+    <div className="sticky top-0 z-50 bg-white/60 backdrop-blur-xs w-full">
       <div className="container mx-auto max-w-3xl px-4 py-4 animate-fade-in-blur rounded-md">
         <div className="flex justify-between items-center px-6">
           <div className="flex justify-between gap-4 items-baseline">

@@ -23,10 +23,10 @@ const Introduction = () => {
                 </div>
                 <div className='ml-auto border-t-2 border-r-2 rounded-e-3xl border-t-zinc-200 border-r-zinc-200 p-1 md:p-2 mb-4 md:mb-0 order-1 md:order-2'>
                     <Link to="/">
-                        <img 
-                            src={Logo} 
-                            alt="no images found" 
-                            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-[7vw] lg:h-[7vw] rounded-full object-cover" 
+                        <img
+                            src={Logo}
+                            alt="no images found"
+                            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-[7vw] lg:h-[7vw] rounded-full object-cover"
                         />
                     </Link>
                 </div>
@@ -55,20 +55,40 @@ const Introduction = () => {
                 Enthusiastic about <strong>competitive coding</strong>.
             </div>
             <div className='flex flex-col justify-around items-start gap-4 md:gap-[2vw] mt-6 md:mt-[2vw]'>
-                <div className='flex flex-col sm:flex-row gap-2 justify-start items-start sm:items-center pl-0 sm:pl-[1vw]'>
-                    <div className='flex gap-2 justify-between items-center border-2 rounded-md border-zinc-500 px-3 py-2 md:px-[0.5vw] md:py-[0.3vw]'>
-                        <div>
+                <div className="flex flex-col sm:flex-row gap-2 justify-start items-start sm:items-center pl-0 sm:pl-[1vw]">
+
+                    <div className="border-2 rounded-md border-zinc-500  transition-all duration-300 ease-in-out">
+                        <a
+                            href="https://docs.google.com/document/d/1mBTAJPTziFSIN2NueDyhPyVaDDzCWOuu/edit?usp=sharing&ouid=101139583786478365075&rtpof=true&sd=true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative flex gap-2 justify-between items-center text-sm md:text-base lg:text-[1vw] px-3 py-2 md:px-[0.5vw] md:py-[0.3vw] overflow-hidden h-[2.3rem] group"
+                        >
                             <CgFileDocument />
-                        </div>
-                        <a href='https://docs.google.com/document/d/1mBTAJPTziFSIN2NueDyhPyVaDDzCWOuu/edit?usp=sharing&ouid=101139583786478365075&rtpof=true&sd=true' className='text-sm md:text-base lg:text-[1vw]' target='blank'>Resume</a>
+                            <span className="relative block overflow-hidden">
+                                <span className="block transition-transform duration-300 group-hover:-translate-y-full">Resume</span>
+                                <span className="absolute left-0 top-full block transition-transform duration-300 group-hover:-translate-y-full">Resume</span>
+                            </span>
+                        </a>
                     </div>
-                    <div className='flex gap-2 justify-between items-center bg-zinc-900 text-white border-2 rounded-md border-zinc-900 px-3 py-2 md:px-[0.5vw] md:py-[0.3vw]'>
-                        <div>
+
+                    <div className="bg-zinc-900 text-white border-2 rounded-md border-zinc-900 hover:bg-zinc-800 transition-all duration-300 ease-in-out">
+                        <a
+                            href="mailto:chaturvediinitin@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative flex gap-2 justify-between items-center text-sm md:text-base lg:text-[1vw] px-3 py-2 md:px-[0.5vw] md:py-[0.3vw] overflow-hidden h-[2.3rem] group"
+                        >
                             <PiTelegramLogoThin />
-                        </div>
-                        <a href='mailto:chaturvediinitin@gmail.com' target='_blank' className='text-sm md:text-base lg:text-[1vw]'>Get in touch</a>
+                            <span className="relative block overflow-hidden">
+                                <span className="block transition-transform duration-300 group-hover:-translate-y-full">Get in touch</span>
+                                <span className="absolute left-0 top-full block transition-transform duration-300 group-hover:-translate-y-full">Get in touch</span>
+                            </span>
+                        </a>
                     </div>
+
                 </div>
+
                 <div className='flex justify-start items-center gap-3 md:gap-4 text-2xl md:text-3xl lg:text-[1.7vw] text-zinc-600'>
                     <a href='https://www.linkedin.com/in/chaturvedinitin' target='_blank'><PiLinkedinLogoLight /></a>
                     <a href='https://github.com/chaturvedinitin/' target='_blank'><PiGithubLogoLight /></a>
@@ -79,6 +99,7 @@ const Introduction = () => {
 
             <div className='mt-8 md:mt-[2vw]'>
                 <h1 className='text-zinc-900 text-3xl md:text-4xl lg:text-[3vw] font-bold'>Projects</h1>
+                <h2 className='text-zinc-600 mt-2'>coming soon...</h2>
             </div>
         </div>
     );
