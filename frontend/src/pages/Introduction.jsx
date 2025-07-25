@@ -14,8 +14,8 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { SiNextdotjs, SiTypescript, SiAppwrite } from "react-icons/si";
 
 import Card from '../components/Card';
-import ProjectImg1 from '../assets/Project1.png'
-import ProjectImg3 from '../assets/Project2.png'
+import ProjectImg1 from '../assets/project1.png'
+import ProjectImg3 from '../assets/project2.png'
 const Introduction = () => {
     const stackStyle = "text-xs md:text-sm lg:text-[0.8vw] bg-zinc-800 text-white font-semibold py-1 px-2 md:py-[0.1vw] md:px-[0.3vw] border border-zinc-700 rounded-md inline-flex items-center whitespace-nowrap m-1";
     const Project1 = {
