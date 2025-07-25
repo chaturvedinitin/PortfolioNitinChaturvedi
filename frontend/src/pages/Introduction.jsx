@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../assets/images.png'
 import { IoLogoJavascript } from "react-icons/io5";
-import { FaReact } from "react-icons/fa";
+import { FaJava, FaReact } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import { FaNodeJs } from "react-icons/fa";
 import { CgFileDocument } from "react-icons/cg";
@@ -12,27 +12,28 @@ import { PiGithubLogoLight } from 'react-icons/pi';
 import { SiLeetcode } from "react-icons/si";
 import { RiTwitterXFill } from "react-icons/ri";
 import { SiNextdotjs, SiTypescript, SiAppwrite } from "react-icons/si";
-import { MdHomeFilled } from 'react-icons/md';
+import { MdHomeFilled, MdJavascript } from 'react-icons/md';
 import Card from '../components/Card';
-
+import ProjectImg1 from '../assets/Project1.png'
+import ProjectImg3 from '../assets/Project2.png'
 const Introduction = () => {
     const stackStyle = "text-xs md:text-sm lg:text-[0.8vw] bg-zinc-800 text-white font-semibold py-1 px-2 md:py-[0.1vw] md:px-[0.3vw] border border-zinc-700 rounded-md inline-flex items-center whitespace-nowrap m-1";
     const Project1 = {
-        image: 'https://via.placeholder.com/400x200', // Replace with your project image URL
-        title: 'NotesBuddy',
-        liveUrl: 'https://example.com',
-        githubUrl: 'https://github.com/example/notesbuddy',
-        description: 'A comprehensive study platform with notes, flashcards, quizzes, AI chatbot, and interactive learning tools.',
-        technologies: [SiNextdotjs, SiTypescript, SiAppwrite, FaReact], // Pass icon components in an array
-        status: 'All Systems Operational',
+        image: ProjectImg1,
+        title: 'Book Tracker',
+        liveUrl: 'https://code-store8-cipher-school.vercel.app/',
+        githubUrl: 'https://github.com/chaturvedinitin/CodeStore8-CipherSchool',
+        description: 'A web application which has a large library of books to read online and keep track of book to read, read or will be reading',
+        technologies: [FaJava, FaNodeJs, FaReact, ],
+        status: 'Live',
         detailsUrl: '/projects/notesbuddy'
     };
     const Project2 = {
-        image: 'https://via.placeholder.com/400x200', // Replace with your project image URL
-        title: 'NotesBuddy',
+        image: ProjectImg3, // Replace with your project image URL
+        title: 'Banking Fraud Detection',
         liveUrl: 'https://example.com',
         githubUrl: 'https://github.com/example/notesbuddy',
-        description: 'A comprehensive study platform with notes, flashcards, quizzes, AI chatbot, and interactive learning tools.',
+        description: 'Uses Data from past transactions to train ml model and give feedback on transactions and detect fraud',
         technologies: [SiNextdotjs, SiTypescript, SiAppwrite, FaReact], // Pass icon components in an array
         status: 'All Systems Operational',
         detailsUrl: '/projects/notesbuddy'
@@ -137,8 +138,8 @@ const Introduction = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <Card project={Project1} />
-                    <Card project={Project1} />
-                    <Card project={Project1} />
+                    <Card project={Project2} />
+                    <Card project={Project3} />
                 </div>
                 <div className="text-zinc-600 p-[0.4vw] flex items-center justify-center">
                     <span className='border border-zinc-400 rounded-sm'>All Projects</span>
