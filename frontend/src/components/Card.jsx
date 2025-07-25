@@ -6,11 +6,14 @@ const Card = ({ project }) => {
   return (
     <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border-2 border-zinc-400">
       {/* Project Image */}
+      <div className='bg-gradient-to-r from-pink-400 to-red-500 '>
       <img
         src={image}
         alt={`${title} project screenshot`}
-        className="w-full h-[10vw] object-cover hover:blur-xs transform duration-500 ease-in-out"
+        className="w-full h-[10vw] object-cover border border-zinc-200 rounded-3xl m-4 -rotate-15 hover:blur-xs transform duration-500 ease-in-out"
       />
+
+      </div>
 
       {/* Project Details */}
       <div className="flex flex-col justify-around p-5 space-y-4">
