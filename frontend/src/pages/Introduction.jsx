@@ -43,20 +43,20 @@ const Introduction = () => {
         <div className='flex flex-col p-4 md:p-6 lg:p-8 min-h-screen'>
             <div className='flex flex-col md:flex-row'>
                 <div className='flex flex-col order-2 md:order-1'>
-                    <span className='text-4xl sm:text-5xl md:text-6xl lg:text-[3vw] font-bold'>Nitin Chaturvedi</span>
-                    <span className='text-lg sm:text-xl md:text-2xl lg:text-[1.2vw] text-zinc-600 tracking-tighter'>A Full Stack Web Developer</span>
+                    <span className='text-4xl sm:text-5xl md:text-6xl lg:text-[3vw] font-extrabold tracking-tight text-zinc-800'>Nitin Chaturvedi</span>
+                    <span className='text-lg sm:text-xl md:text-2xl lg:text-[1.4vw] text-zinc-600 tracking-widest'>A Full Stack Web Developer</span>
                 </div>
-                <div className='ml-auto border-t-2 border-r-2 rounded-e-3xl border-t-zinc-200 border-r-zinc-200 p-1 md:p-2 mb-4 md:mb-0 order-1 md:order-2'>
+                <div className='ml-auto border-t-2 border-zinc-200 p-1 md:p-2 mb-4 md:mb-0 order-1 md:order-2'>
                     <Link to="/">
                         <img
                             src={Logo}
                             alt="no images found"
-                            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-[7vw] lg:h-[7vw] rounded-full object-cover"
+                            className="w-16 h-16 border-r-2 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-[10vw] lg:h-[10vw] border-zinc-200 object-cover"
                         />
                     </Link>
                 </div>
             </div>
-            <div className='mt-6 md:mt-8 text-base sm:text-lg md:text-xl lg:text-[1.2vw] text-zinc-600 tracking-wide md:tracking-widest leading-relaxed'>
+            <div className='mt-6 md:mt-8 text-base sm:text-lg md:text-xl lg:text-[1.4vw] text-zinc-600 tracking-wide md:tracking-widest leading-relaxed'>
                 I build interactive web apps using{' '}
                 {[
                     { name: 'JavaScript', icon: <IoLogoJavascript />, style: 'text-blue-400' },
@@ -131,8 +131,10 @@ const Introduction = () => {
                     <Card project={Project1} />
                     <Card project={Project2} />
                 </div>
-                <div className="text-zinc-900 font-semibold p-[0.4vw] flex items-center justify-center">
-                    <span className='border-1 border-zinc-500 rounded-sm p-1'>All Projects</span>
+                <div className="font-semibold flex items-center justify-center">
+                    <span className='border-1 text-zinc-700 border-zinc-600 rounded-sm p-[0.3vw] hover:scale-95 hover:border-black hover:text-black transition duration-150 ease-in-out'>
+                        <Link to="/">View Projects</Link>
+                    </span>
                 </div>
             </div>
 
