@@ -40,7 +40,7 @@ const Introduction = () => {
     };
 
     return (
-        <div className='flex flex-col p-4 md:p-6 lg:p-8 min-h-screen'>
+        <div className='flex flex-col py-4 md:py-6 lg:py-8 min-h-screen'>
             <div className='flex flex-col md:flex-row'>
                 <div className='flex flex-col order-2 md:order-1'>
                     <span className='text-4xl sm:text-5xl md:text-6xl lg:text-[3vw] font-extrabold tracking-tight text-zinc-800'>Nitin Chaturvedi</span>

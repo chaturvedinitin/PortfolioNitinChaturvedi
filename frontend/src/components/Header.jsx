@@ -6,8 +6,8 @@ import Image from '../assets/image.png'
 const Header = () => {
   return (
     <div className="sticky top-0 z-50 w-full">
-      <div className="container mx-auto max-w-4xl px-4 py-4 animate-fade-in-blur rounded-md bg-white/60 backdrop-blur-xl">
-        <div className="flex justify-between items-center px-6">
+      <div className="container mx-auto max-w-4xl p-4 animate-fade-in-blur rounded-md bg-white/60 backdrop-blur-xl">
+        <div className="flex justify-between items-center">
           <div className="flex justify-between gap-4 items-baseline">
             <div>
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 3123 3000">
@@ -20,7 +20,7 @@ const Header = () => {
               <Link to="/edu">Education</Link>
             </div>
           </div>
-          <div className='text-[1.5vw]'>
+          <div className='text-[1.5vw] active:text-white'>
             <MdDarkMode />
           </div>
         </div>
