@@ -84,12 +84,12 @@ const Home = () => {
         </div>
 
         {/* Buttons */}
-        <div className="mt-8 flex flex-col sm:flex-row gap-4">
+        <div className="mt-8 flex flex-row gap-4">
           <a
             href="https://docs.google.com/document/d/1mBTAJPTziFSIN2NueDyhPyVaDDzCWOuu/edit?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm sm:text-base border border-zinc-500 px-4 py-2 rounded-md hover:bg-zinc-100 transition"
+            className="flex justify-center items-center gap-2 text-sm sm:text-base border border-zinc-500 px-4 py-2 rounded-md hover:bg-zinc-100 transition"
           >
             <CgFileDocument />
             Resume
@@ -97,7 +97,7 @@ const Home = () => {
 
           <a
             href="mailto:chaturvediinitin@gmail.com"
-            className="flex items-center gap-2 text-sm sm:text-base bg-zinc-900 text-white px-4 py-2 rounded-md hover:bg-zinc-800 transition"
+            className="flex justify-center items-center gap-2 text-sm sm:text-base bg-zinc-900 text-white px-4 py-2 rounded-md hover:bg-zinc-800 transition"
           >
             <PiTelegramLogoThin />
             Get in touch
