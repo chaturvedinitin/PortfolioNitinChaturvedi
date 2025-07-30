@@ -44,7 +44,7 @@ const Introduction = () => {
             <div className='flex flex-col md:flex-row'>
                 <div className='flex flex-col order-2 md:order-1'>
                     <span className='text-4xl sm:text-5xl md:text-6xl lg:text-[3vw] font-extrabold tracking-tight text-zinc-800'>Nitin Chaturvedi</span>
-                    <span className='text-lg sm:text-xl md:text-2xl lg:text-[1.4vw] text-zinc-600 tracking-widest'>A Full Stack Web Developer</span>
+                    <span className='text-lg sm:text-xl md:text-2xl lg:text-[1.2vw] text-zinc-600 tracking-widest'>A Full Stack Web Developer</span>
                 </div>
                 <div className='ml-auto border-t-2 border-zinc-200 p-1 md:p-2 mb-4 md:mb-0 order-1 md:order-2'>
                     <Link to="/">
@@ -56,7 +56,7 @@ const Introduction = () => {
                     </Link>
                 </div>
             </div>
-            <div className='mt-6 md:mt-8 text-base sm:text-lg md:text-xl lg:text-[1.4vw] text-zinc-600 tracking-wide md:tracking-widest leading-relaxed'>
+            <div className='mt-6 md:mt-8 text-base sm:text-lg md:text-xl lg:text-[1.2vw] text-zinc-600 tracking-wide md:tracking-widest leading-relaxed'>
                 I build interactive web apps using{' '}
                 {[
                     { name: 'JavaScript', icon: <IoLogoJavascript />, style: 'text-blue-400' },

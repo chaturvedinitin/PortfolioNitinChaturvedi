@@ -6,7 +6,7 @@ import Image from '../assets/image.png'
 const Header = () => {
   return (
     <div className="sticky top-0 z-50 w-full">
-      <div className="container mx-auto max-w-3xl px-4 py-4 animate-fade-in-blur rounded-md bg-white/60 backdrop-blur-xl">
+      <div className="container mx-auto max-w-4xl px-4 py-4 animate-fade-in-blur rounded-md bg-white/60 backdrop-blur-xl">
         <div className="flex justify-between items-center px-6">
           <div className="flex justify-between gap-4 items-baseline">
             <div>

@@ -10,7 +10,7 @@ const Card = ({ project }) => {
       <img
         src={image}
         alt={`${title} project screenshot`}
-        className="w-full h-[14vw] object-cover hover:scale-120 transform duration-500 ease-in-out"
+        className="w-full h-[14vw] object-fit hover:scale-120 transform duration-500 ease-in-out"
       />
 
 
