@@ -7,7 +7,7 @@ import { RiNextjsFill, RiTwitterXFill } from "react-icons/ri";
 import { CgFileDocument } from "react-icons/cg";
 import { PiTelegramLogoThin, PiLinkedinLogoLight, PiGithubLogoLight } from 'react-icons/pi';
 import { SiLeetcode, SiNextdotjs, SiTypescript, SiAppwrite } from "react-icons/si";
-
+import { useState, useRef, useEffect } from "react";
 import Card from '../components/Card';
 import ProjectImg1 from '../assets/project1.png';
 import ProjectImg3 from '../assets/project2.png';
@@ -40,10 +40,67 @@ const Home = () => {
     detailsUrl: '/projects',
   };
 
+  const FORM_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfTXcjLvwkbI8U8oN9xBNhqCPxmvdckw8AqcY3_BcomWSERnw/formResponse";
+  const NAME_ENTRY_ID = "entry.483191057";
+
+  const [showInput, setShowInput] = useState(false);
+  const [name, setName] = useState("");
+  const boxRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (boxRef.current && !boxRef.current.contains(event.target)) {
+        setShowInput(false);
+        setName("");
+      }
+    };
+
+    if (showInput) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showInput]);
+
+  const handleResumeClick = () => {
+    setShowInput(true);
+  };
+
+  const handleAccess = async () => {
+    if (name.trim() === "") {
+      alert("/error : enter name to access");
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+      formData.append(NAME_ENTRY_ID, name);
+
+      await fetch(FORM_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData,
+      });
+    } catch (err) {
+      console.error("Error logging name:", err);
+    }
+
+    window.open(
+      "https://docs.google.com/document/d/1mBTAJPTziFSIN2NueDyhPyVaDDzCWOuu/edit?usp=sharing",
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+    setShowInput(false);
+    setName("");
+  };
+
   return (
     <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex flex-col min-h-screen">
-        {/* Top Section */}
+
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col text-center md:text-left">
             <h1 className="text-4xl sm:text-5xl font-extrabold text-zinc-800 leading-tight">
@@ -62,7 +119,6 @@ const Home = () => {
           </Link>
         </div>
 
-        {/* Tech Stack */}
         <div className="mt-6 text-base sm:text-lg text-zinc-600 leading-relaxed">
           I build interactive web apps using{' '}
           {[
@@ -83,17 +139,37 @@ const Home = () => {
           <strong>competitive coding</strong>.
         </div>
 
-        {/* Buttons */}
         <div className="mt-8 flex flex-row gap-4">
-          <a
-            href="https://docs.google.com/document/d/1mBTAJPTziFSIN2NueDyhPyVaDDzCWOuu/edit?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex justify-center items-center gap-2 text-sm sm:text-base border border-zinc-500 px-4 py-2 rounded-md hover:bg-zinc-100 transition"
-          >
-            <CgFileDocument />
-            Resume
-          </a>
+          <div className="flex flex-col items-center gap-2">
+            <button
+              onClick={handleResumeClick}
+              className="flex justify-center items-center gap-2 text-sm sm:text-base border border-zinc-500 px-4 py-2 rounded-md hover:bg-zinc-100 transition"
+            >
+              <CgFileDocument />
+              Resume
+            </button>
+
+            {showInput && (
+              <div
+                ref={boxRef}
+                className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white border border-zinc-400 rounded-lg shadow-lg p-4 flex flex-col sm:flex-row items-center gap-2"
+              >
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Can I know your / org name first?"
+                  className="w-100 px-3 py-2 border border-zinc-400 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
+                />
+                <button
+                  onClick={handleAccess}
+                  className="px-4 py-2 bg-zinc-800 text-white rounded-md hover:bg-zinc-700 transition"
+                >
+                  Access
+                </button>
+              </div>
+            )}
+          </div>
 
           <a
             href="mailto:chaturvediinitin@gmail.com"
