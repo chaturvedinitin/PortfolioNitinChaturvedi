@@ -171,27 +171,28 @@ const Home = () => {
               Resume
             </button>
 
-            {showInput && (
-              <div
-                ref={boxRef}
-                onMouseDown={handleMouseDown}
-                className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white border border-zinc-400 rounded-lg shadow-lg p-4 flex flex-col sm:flex-row items-center gap-2 cursor-grab active:cursor-grabbing"
-              >
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Can I know your / org name first?"
-                  className="w-100 px-3 py-2 border border-zinc-400 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
-                />
-                <button
-                  onClick={handleAccess}
-                  className="px-4 py-2 bg-zinc-800 text-white rounded-md hover:bg-zinc-700 transition cursor-pointer"
-                >
-                  Access
-                </button>
-              </div>
-            )}
+{showInput && (
+  <div
+    ref={boxRef}
+    onMouseDown={handleMouseDown}
+    className="w-[90vw] sm:w-[80vw] md:w-[60vw] lg:w-lg fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white border border-zinc-400 rounded-lg shadow-lg p-4 flex flex-col sm:flex-row items-center gap-3 cursor-grab active:cursor-grabbing"
+  >
+    <input
+      type="text"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      placeholder="Can I know your / org name first?"
+      className="w-full px-3 py-2 text-sm sm:text-base border border-zinc-400 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
+    />
+    <button
+      onClick={handleAccess}
+      className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-4 py-2 bg-zinc-800 text-white rounded-md hover:bg-zinc-700 transition cursor-pointer"
+    >
+      Access
+    </button>
+  </div>
+)}
+
           </div>
 
           <a
