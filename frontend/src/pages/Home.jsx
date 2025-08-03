@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images.png';
 import { IoLogoJavascript } from "react-icons/io5";
@@ -7,7 +7,6 @@ import { RiNextjsFill, RiTwitterXFill } from "react-icons/ri";
 import { CgFileDocument } from "react-icons/cg";
 import { PiTelegramLogoThin, PiLinkedinLogoLight, PiGithubLogoLight } from 'react-icons/pi';
 import { SiLeetcode, SiNextdotjs, SiTypescript, SiAppwrite } from "react-icons/si";
-import { useState, useRef, useEffect } from "react";
 import Card from '../components/Card';
 import ProjectImg1 from '../assets/project1.png';
 import ProjectImg3 from '../assets/project2.png';
@@ -46,6 +45,8 @@ const Home = () => {
   const [showInput, setShowInput] = useState(false);
   const [name, setName] = useState("");
   const boxRef = useRef(null);
+  const pos = useRef({ offsetX: 0, offsetY: 0 });
+  const dragging = useRef(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -55,14 +56,36 @@ const Home = () => {
       }
     };
 
-    if (showInput) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+    const handleMouseMove = (e) => {
+      if (!dragging.current || !boxRef.current) return;
+      const x = e.clientX - pos.current.offsetX;
+      const y = e.clientY - pos.current.offsetY;
+      boxRef.current.style.left = `${x}px`;
+      boxRef.current.style.top = `${y}px`;
+      boxRef.current.style.transform = "translate(0, 0)";
+    };
+
+    const handleMouseUp = () => {
+      dragging.current = false;
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
   }, [showInput]);
+
+  const handleMouseDown = (e) => {
+    if (!boxRef.current) return;
+    dragging.current = true;
+    pos.current.offsetX = e.clientX - boxRef.current.offsetLeft;
+    pos.current.offsetY = e.clientY - boxRef.current.offsetTop;
+  };
 
   const handleResumeClick = () => {
     setShowInput(true);
@@ -100,7 +123,6 @@ const Home = () => {
   return (
     <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex flex-col min-h-screen">
-
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col text-center md:text-left">
             <h1 className="text-4xl sm:text-5xl font-extrabold text-zinc-800 leading-tight">
@@ -120,7 +142,7 @@ const Home = () => {
         </div>
 
         <div className="mt-6 text-base sm:text-lg text-zinc-600 leading-relaxed">
-          I build interactive web apps using{' '}
+          I build interactive web apps using{" "}
           {[
             { name: 'JavaScript', icon: <IoLogoJavascript />, style: 'text-yellow-400' },
             { name: 'React', icon: <FaReact />, style: 'text-blue-400' },
@@ -135,7 +157,7 @@ const Home = () => {
               {index < arr.length - 1 ? ', ' : '.'}
             </React.Fragment>
           ))}
-          I blend UI/UX precision with scalable <strong>backend development</strong>. Enthusiastic about{' '}
+          I blend UI/UX precision with scalable <strong>backend development</strong>. Enthusiastic about{" "}
           <strong>competitive coding</strong>.
         </div>
 
@@ -143,7 +165,7 @@ const Home = () => {
           <div className="flex flex-col items-center gap-2">
             <button
               onClick={handleResumeClick}
-              className="flex justify-center items-center gap-2 text-sm sm:text-base border border-zinc-500 px-4 py-2 rounded-md hover:bg-zinc-100 transition"
+              className="flex justify-center items-center gap-2 text-sm sm:text-base border border-zinc-500 px-4 py-2 rounded-md hover:bg-zinc-100 transition cursor-pointer"
             >
               <CgFileDocument />
               Resume
@@ -152,7 +174,8 @@ const Home = () => {
             {showInput && (
               <div
                 ref={boxRef}
-                className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white border border-zinc-400 rounded-lg shadow-lg p-4 flex flex-col sm:flex-row items-center gap-2"
+                onMouseDown={handleMouseDown}
+                className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white border border-zinc-400 rounded-lg shadow-lg p-4 flex flex-col sm:flex-row items-center gap-2 cursor-grab active:cursor-grabbing"
               >
                 <input
                   type="text"
@@ -163,7 +186,7 @@ const Home = () => {
                 />
                 <button
                   onClick={handleAccess}
-                  className="px-4 py-2 bg-zinc-800 text-white rounded-md hover:bg-zinc-700 transition"
+                  className="px-4 py-2 bg-zinc-800 text-white rounded-md hover:bg-zinc-700 transition cursor-pointer"
                 >
                   Access
                 </button>
@@ -180,7 +203,6 @@ const Home = () => {
           </a>
         </div>
 
-        {/* Social Icons */}
         <div className="mt-6 flex gap-5 text-2xl text-zinc-600">
           <a href="https://www.linkedin.com/in/chaturvedinitin" target="_blank" rel="noreferrer"><PiLinkedinLogoLight /></a>
           <a href="https://github.com/chaturvedinitin" target="_blank" rel="noreferrer"><PiGithubLogoLight /></a>
@@ -188,7 +210,6 @@ const Home = () => {
           <a href="#" target="_blank" rel="noreferrer"><RiTwitterXFill /></a>
         </div>
 
-        {/* Projects Section */}
         <div className="mt-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-6 text-center sm:text-left">
             Projects
