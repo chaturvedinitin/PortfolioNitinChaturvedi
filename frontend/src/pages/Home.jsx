@@ -111,7 +111,7 @@ const Home = () => {
     }
 
     window.open(
-      "https://docs.google.com/document/d/1mBTAJPTziFSIN2NueDyhPyVaDDzCWOuu/edit?usp=sharing",
+      "https://docs.google.com/document/d/13vDSHAYj3VW_Dns-VpSViCj3xqWgsDJI/edit?usp=sharing&ouid=101139583786478365075&rtpof=true&sd=true",
       "_blank",
       "noopener,noreferrer"
     );
