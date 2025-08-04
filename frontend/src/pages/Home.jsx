@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images.png';
 import { IoLogoJavascript } from "react-icons/io5";
-import { FaJava, FaReact, FaNodeJs } from "react-icons/fa";
+import { FaJava, FaNodeJs, FaReact } from "react-icons/fa";
 import { RiNextjsFill, RiTwitterXFill } from "react-icons/ri";
 import { CgFileDocument } from "react-icons/cg";
 import { PiTelegramLogoThin, PiLinkedinLogoLight, PiGithubLogoLight } from 'react-icons/pi';
@@ -65,18 +65,31 @@ const Home = () => {
       boxRef.current.style.transform = "translate(0, 0)";
     };
 
-    const handleMouseUp = () => {
-      dragging.current = false;
+    const handleTouchMove = (e) => {
+      if (!dragging.current || !boxRef.current || e.touches.length === 0) return;
+      const touch = e.touches[0];
+      const x = touch.clientX - pos.current.offsetX;
+      const y = touch.clientY - pos.current.offsetY;
+      boxRef.current.style.left = `${x}px`;
+      boxRef.current.style.top = `${y}px`;
+      boxRef.current.style.transform = "translate(0, 0)";
     };
+
+    const handleMouseUp = () => (dragging.current = false);
+    const handleTouchEnd = () => (dragging.current = false);
 
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("touchend", handleTouchEnd);
     };
   }, [showInput]);
 
@@ -87,9 +100,15 @@ const Home = () => {
     pos.current.offsetY = e.clientY - boxRef.current.offsetTop;
   };
 
-  const handleResumeClick = () => {
-    setShowInput(true);
+  const handleTouchStart = (e) => {
+    if (!boxRef.current || e.touches.length === 0) return;
+    const touch = e.touches[0];
+    dragging.current = true;
+    pos.current.offsetX = touch.clientX - boxRef.current.offsetLeft;
+    pos.current.offsetY = touch.clientY - boxRef.current.offsetTop;
   };
+
+  const handleResumeClick = () => setShowInput(true);
 
   const handleAccess = async () => {
     if (name.trim() === "") {
@@ -143,8 +162,7 @@ const Home = () => {
 
         <div className="mt-6 text-base sm:text-lg text-zinc-600 leading-relaxed">
           I build interactive web apps using{" "}
-          {[
-            { name: 'JavaScript', icon: <IoLogoJavascript />, style: 'text-yellow-400' },
+          {[{ name: 'JavaScript', icon: <IoLogoJavascript />, style: 'text-yellow-400' },
             { name: 'React', icon: <FaReact />, style: 'text-blue-400' },
             { name: 'Next.js', icon: <RiNextjsFill />, style: 'text-black bg-white' },
             { name: 'Node.js', icon: <FaNodeJs />, style: 'text-green-400' },
@@ -175,7 +193,8 @@ const Home = () => {
               <div
                 ref={boxRef}
                 onMouseDown={handleMouseDown}
-                className="w-[90vw] sm:w-[80vw] md:w-[60vw] lg:w-lg fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white border border-zinc-400 rounded-lg shadow-lg p-4 flex flex-col sm:flex-row items-center gap-3 cursor-grab active:cursor-grabbing"
+                onTouchStart={handleTouchStart}
+                className="w-[90vw] sm:w-[80vw] md:w-[60vw] lg:w-lg fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-white border border-zinc-400 rounded-lg shadow-lg p-4 flex flex-col sm:flex-row items-center gap-3 cursor-grab active:cursor-grabbing touch-none"
               >
                 <input
                   type="text"
@@ -192,7 +211,6 @@ const Home = () => {
                 </button>
               </div>
             )}
-
           </div>
 
           <a
