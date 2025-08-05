@@ -161,6 +161,13 @@ const Home = () => {
       exit={{ opacity: 0 }}
       variants={containerVariants}
       className="scroll-smooth"
+style={{
+  fontFamily: '"Merriweather", serif',
+  fontOpticalSizing: 'auto',
+  fontWeight: 400,
+  fontStyle: 'normal',
+  fontVariationSettings: '"wdth" 100',
+}}
     >
       <div className="container mx-auto max-w-3xl px-6 sm:px-8 lg:px-12 py-16">
         <div className="flex flex-col min-h-screen">
@@ -171,10 +178,10 @@ const Home = () => {
             className="flex flex-col md:flex-row items-center justify-between gap-10"
           >
             <div className="flex flex-col text-center md:text-left">
-              <h1 className="text-4xl sm:text-5xl font-extrabold text-zinc-800 leading-tight">
+              <h1 className="text-[6vw] sm:text-[3vw] font-[Bungee] text-zinc-800 leading-none tracking-tighter">
                 Nitin Chaturvedi
               </h1>
-              <p className="text-lg sm:text-xl text-zinc-600 mt-3 tracking-wide">
+              <p className="text-lg sm:text-xl text-zinc-600 mt-3 tracking-tighter">
                 A Full Stack Web Developer
               </p>
             </div>
