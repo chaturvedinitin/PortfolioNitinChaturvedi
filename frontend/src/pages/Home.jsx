@@ -178,10 +178,10 @@ const Home = () => {
             className="flex flex-col md:flex-row items-center justify-between gap-10"
           >
             <div className="flex flex-col text-center md:text-left">
-              <h1 className="text-[7vw] sm:text-[3vw] font-[Bungee] text-zinc-800 leading-none tracking-tighter">
+              <h1 className="text-[7vw] sm:text-[6vw] md:text-[5vw] lg:text-[3vw] font-[Bungee] text-zinc-700 leading-none tracking-tighter">
                 Nitin Chaturvedi
               </h1>
-              <p className="text-lg sm:text-xl text-zinc-600 mt-3 tracking-tighter">
+              <p className="text-[4vw] sm:text-[3vw] md:text-[1.5vw] text-zinc-600 mt-3 tracking-tighter">
                 A Full Stack Web Developer
               </p>
             </div>
@@ -189,7 +189,7 @@ const Home = () => {
               <img
                 src={Logo}
                 alt="Logo"
-                className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-md object-cover border-2 border-zinc-200"
+                className="w-28 h-28 sm:w-34 sm:h-34 md:w-46 md:h-46 rounded-md object-cover border-2 border-zinc-200"
               />
             </Link>
           </motion.div>
@@ -198,7 +198,7 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="mt-20 text-base sm:text-lg text-zinc-500 leading-relaxed"
+            className="mt-10 text-base sm:text-lg text-zinc-500 leading-relaxed"
           >
             I build interactive web apps using{" "}
             {[{ name: 'JavaScript', icon: <IoLogoJavascript />, style: 'text-yellow-400' },
@@ -267,7 +267,7 @@ const Home = () => {
             </a>
           </div>
 
-          <div className="mt-10 flex gap-3 text-2xl text-zinc-500">
+          <div className="mt-8 flex gap-3 text-2xl text-zinc-500">
             <a href="https://www.linkedin.com/in/chaturvedinitin" target="_blank" rel="noreferrer"><PiLinkedinLogoLight /></a>
             <a href="https://github.com/chaturvedinitin" target="_blank" rel="noreferrer"><PiGithubLogoLight /></a>
             <a href="https://leetcode.com/u/chaturvedinitin/" target="_blank" rel="noreferrer"><SiLeetcode /></a>
