@@ -143,8 +143,8 @@ const Home = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.05,
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
       },
     },
   };
@@ -284,7 +284,7 @@ const Home = () => {
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.01 }}
             >
               {[1, 2, 3, 4].map((_, idx) => (
                 <motion.div key={idx} variants={cardVariants} whileHover={{ scale: 1.02 }}>
