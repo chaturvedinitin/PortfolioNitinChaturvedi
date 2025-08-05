@@ -14,7 +14,7 @@ import ProjectImg1 from '../assets/project1.png';
 import ProjectImg3 from '../assets/project2.png';
 
 const Home = () => {
-  const stackStyle = "text-xs md:text-sm lg:text-base bg-zinc-800 text-white font-semibold py-1 px-2 rounded-md inline-flex items-center whitespace-nowrap m-1";
+  const stackStyle = "text-xs bg-zinc-700 text-white font-semibold py-1 px-2 rounded-md inline-flex items-center whitespace-nowrap m-1";
 
   const Project1 = {
     image: ProjectImg1,
@@ -178,7 +178,7 @@ const Home = () => {
             className="flex flex-col md:flex-row items-center justify-between gap-10"
           >
             <div className="flex flex-col text-center md:text-left">
-              <h1 className="text-[7vw] sm:text-[6vw] md:text-[5vw] lg:text-[3vw] font-[Bungee] text-zinc-700 leading-none tracking-tighter">
+              <h1 className="text-[7vw] sm:text-[6vw] md:text-[5vw] lg:text-[3vw] font-[Bungee] text-black leading-none tracking-tighter">
                 Nitin Chaturvedi
               </h1>
               <p className="text-[4vw] sm:text-[3vw] md:text-[3vw] lg:text-[1.5vw] text-zinc-600 mt-3 tracking-tighter">
@@ -198,7 +198,7 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="mt-10 text-base sm:text-lg text-zinc-500 leading-relaxed"
+            className="mt-10 text-base sm:text-lg text-zinc-600 leading-loose tracking-wider"
           >
             I build interactive web apps using{" "}
             {[{ name: 'JavaScript', icon: <IoLogoJavascript />, style: 'text-yellow-400' },
@@ -260,14 +260,14 @@ const Home = () => {
 
             <a
               href="mailto:chaturvediinitin@gmail.com"
-              className="text-sm flex justify-center items-center gap-2 bg-zinc-900 text-white px-4 py-2 rounded-md hover:bg-zinc-800 transition"
+              className="text-sm flex justify-center items-center gap-2 bg-zinc-800 text-white px-4 py-2 rounded-md hover:bg-zinc-800 transition"
             >
               <PiTelegramLogoThin />
               Get in touch
             </a>
           </div>
 
-          <div className="mt-8 flex gap-3 text-2xl text-zinc-500">
+          <div className="mt-4 flex gap-3 text-2xl text-zinc-500">
             <a href="https://www.linkedin.com/in/chaturvedinitin" target="_blank" rel="noreferrer"><PiLinkedinLogoLight /></a>
             <a href="https://github.com/chaturvedinitin" target="_blank" rel="noreferrer"><PiGithubLogoLight /></a>
             <a href="https://leetcode.com/u/chaturvedinitin/" target="_blank" rel="noreferrer"><SiLeetcode /></a>
