@@ -181,7 +181,7 @@ const Home = () => {
               <h1 className="text-[7vw] sm:text-[6vw] md:text-[5vw] lg:text-[3vw] font-[Bungee] text-zinc-700 leading-none tracking-tighter">
                 Nitin Chaturvedi
               </h1>
-              <p className="text-[4vw] sm:text-[3vw] md:text-[1.5vw] text-zinc-600 mt-3 tracking-tighter">
+              <p className="text-[4vw] sm:text-[3vw] md:text-[3vw] lg:text-[1.5vw] text-zinc-600 mt-3 tracking-tighter">
                 A Full Stack Web Developer
               </p>
             </div>
