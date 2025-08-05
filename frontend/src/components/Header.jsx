@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <div className="sticky top-0 z-50 w-full">
-      <div className="relative mx-auto max-w-4xl p-6 md:p-8 animate-fade-in-blur rounded-md bg-white/60 backdrop-blur-xl shadow-xs">
+      <div className="relative mx-auto max-w-3xl p-6 md:p-8 animate-fade-in-blur rounded-md bg-white/60 backdrop-blur-xl shadow-xs">
         <div className="relative flex items-center justify-between">
 
 
@@ -48,7 +48,6 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Mobile Dropdown Menu */}
         {menuOpen && (
           <div className="absolute top-full left-0 w-full mt-2 bg-white/90 backdrop-blur-md rounded-md shadow-md flex flex-col gap-3 p-4 md:hidden z-40">
             <Link to="/projects" onClick={() => setMenuOpen(false)} className="hover:text-black/80">Projects</Link>
