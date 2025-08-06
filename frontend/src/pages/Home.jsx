@@ -38,6 +38,30 @@ const Home = () => {
     detailsUrl: '/projects',
   };
 
+  const Project3 = {
+    image: ProjectImg1,
+    title: 'Portfolio Website',
+    liveUrl: 'https://portfolio.example.com/',
+    githubUrl: 'https://github.com/chaturvedinitin/Portfolio',
+    description: 'Personal portfolio website showcasing skills and projects.',
+    technologies: [FaReact, IoLogoJavascript],
+    status: 'Live',
+    detailsUrl: '/projects',
+  };
+
+  const Project4 = {
+    image: ProjectImg3,
+    title: 'Weather App',
+    liveUrl: 'https://weather.example.com/',
+    githubUrl: 'https://github.com/chaturvedinitin/WeatherApp',
+    description: 'A simple weather forecast app using public APIs.',
+    technologies: [FaNodeJs, FaReact],
+    status: 'Live',
+    detailsUrl: '/projects',
+  };
+
+  const projects = [Project1, Project2, Project3, Project4];
+
   const FORM_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfTXcjLvwkbI8U8oN9xBNhqCPxmvdckw8AqcY3_BcomWSERnw/formResponse";
   const NAME_ENTRY_ID = "entry.483191057";
 
@@ -160,7 +184,7 @@ const Home = () => {
       animate="visible"
       exit={{ opacity: 0 }}
       variants={containerVariants}
-      className="scroll-smooth"
+      className="scroll-smooth bg-zinc-900 text-zinc-200"
       style={{
         fontFamily: '"Merriweather", serif',
         fontOpticalSizing: 'auto',
@@ -178,10 +202,10 @@ const Home = () => {
             className="flex flex-col md:flex-row items-center justify-between gap-10"
           >
             <div className="flex flex-col text-center md:text-left">
-              <h1 className="text-[7vw] sm:text-[6vw] md:text-[5vw] lg:text-[3vw] font-[Bungee] text-black leading-none tracking-tighter">
+              <h1 className="text-[7vw] sm:text-[6vw] md:text-[5vw] lg:text-[3vw] font-[Bungee] text-white/85 leading-none tracking-tighter">
                 Nitin Chaturvedi
               </h1>
-              <p className="text-[4vw] sm:text-[3vw] md:text-[3vw] lg:text-[1.5vw] text-zinc-600 mt-3 tracking-tighter">
+              <p className="text-[4vw] sm:text-[3vw] md:text-[3vw] lg:text-[1.5vw] text-zinc-400 mt-3 tracking-tighter">
                 A Full Stack Web Developer
               </p>
             </div>
@@ -189,7 +213,7 @@ const Home = () => {
               <img
                 src={Logo}
                 alt="Logo"
-                className="w-28 h-28 sm:w-34 sm:h-34 md:w-46 md:h-46 rounded-md object-cover border-2 border-zinc-200"
+                className="w-28 h-28 sm:w-34 sm:h-34 md:w-46 md:h-46 rounded-md object-cover bg-zinc-900 border-2 border-accent border-zinc-600"
               />
             </Link>
           </motion.div>
@@ -198,31 +222,18 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="mt-10 text-base sm:text-lg text-zinc-600 leading-loose tracking-wider"
+            className="mt-10 text-base sm:text-lg text-zinc-400 leading-loose tracking-wider border-y-2 border-zinc-700"
           >
-            I build interactive web apps using{" "}
-            {[{ name: 'JavaScript', icon: <IoLogoJavascript />, style: 'text-yellow-400' },
-            { name: 'React', icon: <FaReact />, style: 'text-blue-400' },
-            { name: 'Next.js', icon: <RiNextjsFill />, style: 'text-black bg-white' },
-            { name: 'Node.js', icon: <FaNodeJs />, style: 'text-green-400' },
-            ].map((item, index, arr) => (
-              <React.Fragment key={index}>
-                <span className={`${stackStyle}`}>
-                  <span className={`${item.style} mr-1`}>{item.icon}</span>
-                  {item.name}
-                </span>
-                {index < arr.length - 1 ? ', ' : '.'}
-              </React.Fragment>
-            ))}
-            I blend UI/UX precision with scalable <strong>backend development</strong>. Enthusiastic about{" "}
+            I build interactive web apps and blend UI/UX precision with scalable <strong>backend development</strong>. Enthusiastic about{" "}
             <strong>competitive coding</strong>.
+            <div className='relative bottom-0 text-center text-zinc-200 text-xs bg-black/20 backdrop:blur-2xl cursor-pointer'>Read more <span className='hover:animate-bounce '>↓</span></div>
           </motion.div>
 
-          <div className="mt-12 flex flex-row gap-4">
+          <div className="mt-6 flex flex-row gap-4 justify-center">
             <div className="flex flex-col items-center gap-2">
               <button
                 onClick={handleResumeClick}
-                className="text-sm flex justify-center items-center gap-2 border border-zinc-300 px-4 py-2 rounded-md hover:bg-zinc-100 transition cursor-pointer"
+                className="text-sm flex justify-center items-center gap-2 border border-zinc-300 px-2 py-1 rounded-md hover:bg-zinc-100 hover:text-zinc-700 transition cursor-pointer"
               >
                 <CgFileDocument />
                 Resume
@@ -238,18 +249,18 @@ const Home = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
-                    className="w-[50vw] sm:w-[40vw] md:w-[30vw] fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white border border-zinc-400 rounded-lg shadow-lg p-4 flex flex-col sm:flex-row items-center gap-3 cursor-grab active:cursor-grabbing"
+                    className="w-[50vw] sm:w-[40vw] md:w-[30vw] fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-black border border-zinc-700 rounded-lg shadow-lg p-4 flex flex-col sm:flex-row items-center gap-3 cursor-grab active:cursor-grabbing"
                   >
                     <input
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Enter your name here..."
-                      className="w-full px-3 py-2 text-sm sm:text-base border border-zinc-400 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
+                      className="w-full px-3 py-2 text-sm sm:text-base text-zinc-400 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                     <button
                       onClick={handleAccess}
-                      className="w-full sm:w-auto text-sm sm:text-base px-4 py-2 bg-zinc-800 text-white rounded-md hover:bg-zinc-700 transition cursor-pointer"
+                      className="w-full sm:w-auto text-sm sm:text-base px-4 py-2 bg-zinc-800 text-zinc-300 rounded-md hover:bg-zinc-700 transition cursor-pointer"
                     >
                       Access
                     </button>
@@ -260,47 +271,31 @@ const Home = () => {
 
             <a
               href="mailto:chaturvediinitin@gmail.com"
-              className="text-sm flex justify-center items-center gap-2 bg-zinc-800 text-white px-4 py-2 rounded-md hover:bg-zinc-800 transition"
+              className="text-sm flex justify-center items-center gap-2 bg-zinc-800 text-white border border-zinc-800 px-2 py-1 rounded-md hover:bg-zinc-800 transition"
             >
               <PiTelegramLogoThin />
               Get in touch
             </a>
           </div>
 
-          <div className="mt-4 flex gap-3 text-2xl text-zinc-500">
-            <a href="https://www.linkedin.com/in/chaturvedinitin" target="_blank" rel="noreferrer"><PiLinkedinLogoLight /></a>
-            <a href="https://github.com/chaturvedinitin" target="_blank" rel="noreferrer"><PiGithubLogoLight /></a>
-            <a href="https://leetcode.com/u/chaturvedinitin/" target="_blank" rel="noreferrer"><SiLeetcode /></a>
-            <a href="#" target="_blank" rel="noreferrer"><RiTwitterXFill /></a>
-          </div>
-
-          <motion.div className="mt-20" variants={containerVariants}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-6 text-center sm:text-left">
+          <motion.div className="mt-4" variants={containerVariants}>
+            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-400 mb-6 text-center sm:text-left border-zinc-700 pt-10">
               Projects
             </h2>
 
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+              className="grid grid-cols-1 gap-6 border-zinc-700 pb-10"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.01 }}
             >
-              {[1, 2, 3, 4].map((_, idx) => (
+              {projects.map((project, idx) => (
                 <motion.div key={idx} variants={cardVariants} whileHover={{ scale: 1.02 }}>
-                  <Card project={idx % 2 === 0 ? Project1 : Project2} />
+                  <Card project={project} />
                 </motion.div>
               ))}
             </motion.div>
-
-            <div className="mt-8 flex justify-center">
-              <Link
-                to="/projects"
-                className="text-xs font-medium text-zinc-700 border border-zinc-500 px-2 py-1 rounded hover:text-black hover:border-black transition"
-              >
-                View More Projects
-              </Link>
-            </div>
           </motion.div>
         </div>
       </div>
