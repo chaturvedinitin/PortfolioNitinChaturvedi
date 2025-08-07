@@ -1,68 +1,72 @@
-import { FiGlobe, FiGithub, FiArrowRight } from 'react-icons/fi';
+import { FiGlobe, FiGithub } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 const Card = ({ project }) => {
   const {
-    image,
     title,
     liveUrl,
     githubUrl,
     description,
-    technologies,
-    status,
-    detailsUrl,
+    technologies = [],
   } = project;
 
   return (
-    <div className="bg-white flex flex-col justify-between rounded-xl shadow-sm hover:shadow-md border border-zinc-400 transition-all duration-300 ease-in-out group hover:scale-[1.015] w-full mx-auto h-full">
-
-      {/* Body */}
-      <div className="flex flex-col px-4 py-3 flex-grow bg-zinc-900 text-zinc-400">
-        {/* Title & Links */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.03 }}
+      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+      className="bg-zinc-900 text-zinc-300 flex flex-col justify-between rounded-xl shadow-md border border-zinc-700 w-full h-full overflow-hidden"
+    >
+      <div className="flex flex-col px-5 py-4 flex-grow">
         <div className="flex items-start justify-between">
-          <h3 className="text-sm font-semibold text-zinc-400 line-clamp-1">
+          <h3 className="text-base font-semibold text-zinc-100 line-clamp-1">
             {title}
           </h3>
-          <div className="flex items-center gap-2 text-zinc-500">
+          <div className="flex items-center gap-3">
             {liveUrl && (
               <a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-zinc-800"
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Live project link"
+                className="text-zinc-400 hover:text-green-400 transition-colors"
               >
-                <FiGlobe className="text-[16px]" />
+                <FiGlobe className="text-lg" />
               </a>
             )}
             {githubUrl && (
               <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-zinc-800"
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub repository"
+                className="text-zinc-400 hover:text-indigo-400 transition-colors"
               >
-                <FiGithub className="text-[16px]" />
+                <FiGithub className="text-lg" />
               </a>
             )}
           </div>
         </div>
 
-
-        <p className="text-xs text-zinc-600 leading-snug line-clamp-3 mt-2 mb-3">
+        <p className="text-sm text-zinc-400 leading-snug line-clamp-3 mt-2 mb-4">
           {description}
         </p>
 
-        <div className="flex flex-wrap gap-1.5 mb-3">
-          {technologies.map((TechIcon, index) => (
-            <div
-            key={index}
-            className="text-sm text-zinc-900 bg-zinc-600 hover:bg-zinc-200 transition px-2 py-[2px] rounded"
+        <div className="flex flex-wrap gap-2 mt-auto">
+          {technologies.map((tech, index) => (
+            <motion.span
+              key={index}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              className="text-xs font-medium bg-zinc-800 text-zinc-300 px-2 py-1 rounded hover:bg-zinc-700 hover:text-white transition"
             >
-                React
-            </div>
+              {tech}
+            </motion.span>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

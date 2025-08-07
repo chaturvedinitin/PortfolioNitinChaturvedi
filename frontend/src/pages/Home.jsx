@@ -1,63 +1,46 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Logo from '../assets/images.png';
-import { IoLogoJavascript } from "react-icons/io5";
-import { FaJava, FaNodeJs, FaReact } from "react-icons/fa";
-import { RiNextjsFill, RiTwitterXFill } from "react-icons/ri";
 import { CgFileDocument } from "react-icons/cg";
-import { PiTelegramLogoThin, PiLinkedinLogoLight, PiGithubLogoLight } from 'react-icons/pi';
-import { SiLeetcode, SiNextdotjs, SiTypescript, SiAppwrite } from "react-icons/si";
+import { PiMicrophoneLight, PiTelegramLogoThin } from 'react-icons/pi';
 import Card from '../components/Card';
-import ProjectImg1 from '../assets/project1.png';
-import ProjectImg3 from '../assets/project2.png';
+
 
 const Home = () => {
   const stackStyle = "text-xs bg-zinc-700 text-white font-semibold py-1 px-2 rounded-md inline-flex items-center whitespace-nowrap m-1";
 
   const Project1 = {
-    image: ProjectImg1,
     title: 'Book Tracker',
     liveUrl: 'https://code-store8-cipher-school.vercel.app/',
     githubUrl: 'https://github.com/chaturvedinitin/CodeStore8-CipherSchool',
     description: 'A web application which has a large library of books to read online and keep track of book to read, read or will be reading',
-    technologies: [FaJava, FaNodeJs, FaReact],
-    status: 'Live',
-    detailsUrl: '/projects',
+    technologies: ["React", "Google API", "Express"],
   };
 
   const Project2 = {
-    image: ProjectImg3,
     title: 'Banking Fraud Detection',
     liveUrl: '/',
     githubUrl: 'https://github.com/chaturvedinitin/Banking_Fraud_Detection_System',
     description: 'Uses Data from past transactions to train ML model and give feedback on transactions and detect fraud',
-    technologies: [SiNextdotjs, SiTypescript, SiAppwrite, FaReact],
-    status: 'Unhosted',
-    detailsUrl: '/projects',
+    technologies: ["Python", "Streamlit", "ML"],
   };
 
   const Project3 = {
-    image: ProjectImg1,
     title: 'Portfolio Website',
     liveUrl: 'https://portfolio.example.com/',
     githubUrl: 'https://github.com/chaturvedinitin/Portfolio',
     description: 'Personal portfolio website showcasing skills and projects.',
-    technologies: [FaReact, IoLogoJavascript],
-    status: 'Live',
-    detailsUrl: '/projects',
+    technologies: ["React", "Javascript"],
   };
 
   const Project4 = {
-    image: ProjectImg3,
     title: 'Weather App',
     liveUrl: 'https://weather.example.com/',
     githubUrl: 'https://github.com/chaturvedinitin/WeatherApp',
     description: 'A simple weather forecast app using public APIs.',
-    technologies: [FaNodeJs, FaReact],
-    status: 'Live',
-    detailsUrl: '/projects',
+    technologies: ["FaNodeJs", "FaReact"],
   };
 
   const projects = [Project1, Project2, Project3, Project4];
@@ -178,6 +161,11 @@ const Home = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const [expanded, setExpanded] = useState(false);
+
+  const toggleExpand = () => setExpanded(!expanded);
+
+
   return (
     <motion.div
       initial="hidden"
@@ -193,7 +181,7 @@ const Home = () => {
         fontVariationSettings: '"wdth" 100',
       }}
     >
-      <div className="container mx-auto max-w-3xl px-6 sm:px-8 lg:px-12 py-16">
+      <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-10 py-6">
         <div className="flex flex-col min-h-screen">
           <motion.div
             initial={{ opacity: 0, y: -40 }}
@@ -205,7 +193,7 @@ const Home = () => {
               <h1 className="text-[7vw] sm:text-[6vw] md:text-[5vw] lg:text-[3vw] font-[Bungee] text-white/85 leading-none tracking-tighter">
                 Nitin Chaturvedi
               </h1>
-              <p className="text-[4vw] sm:text-[3vw] md:text-[3vw] lg:text-[1.5vw] text-zinc-400 mt-3 tracking-tighter">
+              <p className="text-[4vw] sm:text-[3vw] md:text-[3vw] lg:text-[1.5vw] text-zinc-300 mt-3 tracking-tighter">
                 A Full Stack Web Developer
               </p>
             </div>
@@ -213,7 +201,7 @@ const Home = () => {
               <img
                 src={Logo}
                 alt="Logo"
-                className="w-28 h-28 sm:w-34 sm:h-34 md:w-46 md:h-46 rounded-md object-cover bg-zinc-900 border-2 border-accent border-zinc-600"
+                className="w-28 h-28 sm:w-34 sm:h-34 md:w-46 md:h-46 rounded-md object-cover bg-zinc-900 border-2 border-accent border-zinc-800"
               />
             </Link>
           </motion.div>
@@ -221,19 +209,40 @@ const Home = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="mt-10 text-base sm:text-lg text-zinc-400 leading-loose tracking-wider border-y-2 border-zinc-700"
+            transition={{ duration: 1 }}
+            className={`relative mt-10 text-base sm:text-lg text-zinc-300 leading-loose tracking-wider border-y-2 border-zinc-700 overflow-hidden`}
           >
-            I build interactive web apps and blend UI/UX precision with scalable <strong>backend development</strong>. Enthusiastic about{" "}
-            <strong>competitive coding</strong>.
-            <div className='relative bottom-0 text-center text-zinc-200 text-xs bg-black/20 backdrop:blur-2xl cursor-pointer'>Read more <span className='hover:animate-bounce '>↓</span></div>
+            <motion.div
+              animate={{ maxHeight: expanded ? 500 : 80}}
+              transition={{ duration: 0.8, ease: 'easeInOut' }}
+              className="overflow-hidden"
+            >
+              <p>
+                I'm a full-stack developer with a drive for building beautiful, functional, and scalable web applications. I love to jump into projects and learn from those around me to refine my skills as a student and developer. Enthusiastic about <strong>competitive coding</strong>. I also enjoy contributing to open-source projects, mentoring others, and continuously learning new tools and technologies to build impactful products.
+              </p>
+            </motion.div>
+
+            <div
+              onClick={toggleExpand}
+              className="absolute w-full text-center bottom-0 text-zinc-200 text-xs bg-zinc-900/30 cursor-pointer py-2 transition-all"
+            >
+              {expanded ? (
+                <>
+                  Read less <span className="hover:animate-bounce">↑</span>
+                </>
+              ) : (
+                <>
+                  Read more <span className="hover:animate-bounce">↓</span>
+                </>
+              )}
+            </div>
           </motion.div>
 
-          <div className="mt-6 flex flex-row gap-4 justify-center">
+          <div className="mt-12 flex flex-row gap-4 justify-center">
             <div className="flex flex-col items-center gap-2">
               <button
                 onClick={handleResumeClick}
-                className="text-sm flex justify-center items-center gap-2 border border-zinc-300 px-2 py-1 rounded-md hover:bg-zinc-100 hover:text-zinc-700 transition cursor-pointer"
+                className="text-sm text-zinc-300 flex justify-center items-center gap-2 border border-zinc-300 px-2 py-1 rounded-md hover:bg-violet-200 hover:text-zinc-700 transition cursor-pointer"
               >
                 <CgFileDocument />
                 Resume
@@ -256,7 +265,7 @@ const Home = () => {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Enter your name here..."
-                      className="w-full px-3 py-2 text-sm sm:text-base text-zinc-400 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
+                      className="w-full px-3 py-2 text-sm sm:text-base text-zinc-300 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
                     />
                     <button
                       onClick={handleAccess}
@@ -271,7 +280,7 @@ const Home = () => {
 
             <a
               href="mailto:chaturvediinitin@gmail.com"
-              className="text-sm flex justify-center items-center gap-2 bg-zinc-800 text-white border border-zinc-800 px-2 py-1 rounded-md hover:bg-zinc-800 transition"
+              className="text-sm hover:text-zinc-300 flex justify-center items-center gap-2 border hover:bg-zinc-900 border-zinc-300 px-2 py-1 rounded-md bg-violet-200 text-zinc-700 transition cursor-pointer"
             >
               <PiTelegramLogoThin />
               Get in touch
@@ -279,7 +288,7 @@ const Home = () => {
           </div>
 
           <motion.div className="mt-4" variants={containerVariants}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-400 mb-6 text-center sm:text-left border-zinc-700 pt-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-300 mb-6 text-center sm:text-left border-zinc-700 pt-10">
               Projects
             </h2>
 
