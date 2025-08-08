@@ -6,10 +6,11 @@ import Logo from '../assets/images.png';
 import { CgFileDocument } from "react-icons/cg";
 import { PiMicrophoneLight, PiTelegramLogoThin } from 'react-icons/pi';
 import Card from '../components/Card';
+import Header from '../components/Header';
 
 
 const Home = () => {
-  const stackStyle = "text-xs bg-zinc-700 text-white font-semibold py-1 px-2 rounded-md inline-flex items-center whitespace-nowrap m-1";
+  const stackStyle = "text-xs bg-zinc-700 text-gray-400 font-semibold py-1 px-2 rounded-md inline-flex items-center whitespace-nowrap m-1";
 
   const Project1 = {
     title: 'Book Tracker',
@@ -172,7 +173,7 @@ const Home = () => {
       animate="visible"
       exit={{ opacity: 0 }}
       variants={containerVariants}
-      className="scroll-smooth bg-zinc-900 text-zinc-200"
+      className="scroll-smooth bg-black/5 text-zinc-100"
       style={{
         fontFamily: '"Merriweather", serif',
         fontOpticalSizing: 'auto',
@@ -181,8 +182,9 @@ const Home = () => {
         fontVariationSettings: '"wdth" 100',
       }}
     >
-      <div className="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-10 py-6">
-        <div className="flex flex-col min-h-screen">
+      <div className="container mx-auto max-w-3xl">
+              <Header/>
+        <div className="flex flex-col min-h-screen px-6 sm:px-8 lg:px-10 py-6">
           <motion.div
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -190,18 +192,18 @@ const Home = () => {
             className="flex flex-col md:flex-row items-center justify-between gap-10"
           >
             <div className="flex flex-col text-center md:text-left">
-              <h1 className="text-[7vw] sm:text-[6vw] md:text-[5vw] lg:text-[3vw] font-[Bungee] text-white/85 leading-none tracking-tighter">
+              <h1 className="text-[7.5vw] sm:text-[6.5vw] md:text-[5.5vw] lg:text-[3.5vw] font-extrabold text-white leading-none tracking-wide">
                 Nitin Chaturvedi
               </h1>
-              <p className="text-[4vw] sm:text-[3vw] md:text-[3vw] lg:text-[1.5vw] text-zinc-300 mt-3 tracking-tighter">
-                A Full Stack Web Developer
+              <p className="text-[2vw] sm:text-[1vw] md:text-[1vw] lg:text-[1.2vw] text-zinc-200 mt-3 tracking-tighter font-thin">
+                Full Stack Web Developer | Building products
               </p>
             </div>
             <Link to="/" className="shrink-0">
               <img
                 src={Logo}
                 alt="Logo"
-                className="w-28 h-28 sm:w-34 sm:h-34 md:w-46 md:h-46 rounded-md object-cover bg-zinc-900 border-2 border-accent border-zinc-800"
+                className="w-28 h-28 sm:w-34 sm:h-34 md:w-46 md:h-46 rounded-md object-cover bg-black/10 border-2 border-accent border-zinc-800"
               />
             </Link>
           </motion.div>
@@ -210,21 +212,28 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className={`relative mt-10 text-base sm:text-lg text-zinc-300 leading-loose tracking-wider border-y-2 border-zinc-700 overflow-hidden`}
+            className={`relative mt-10 text-base sm:text-md text-gray-400 leading-loose tracking-wider border-y-2 border-zinc-700 overflow-hidden`}
           >
             <motion.div
               animate={{ maxHeight: expanded ? 500 : 80}}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
-              className="overflow-hidden"
+              className="overflow-hidden p-6"
             >
               <p>
-                I'm a full-stack developer with a drive for building beautiful, functional, and scalable web applications. I love to jump into projects and learn from those around me to refine my skills as a student and developer. Enthusiastic about <strong>competitive coding</strong>. I also enjoy contributing to open-source projects, mentoring others, and continuously learning new tools and technologies to build impactful products.
+                I'm a full-stack developer with a drive for building beautiful, functional, and scalable web applications.
               </p>
+              <p>
+                I love to jump into projects and learn from those around me to refine my skills as a student and developer.
+              </p>
+              <p>
+                Enthusiastic about <strong>competitive coding</strong>. I also enjoy contributing to open-source projects, mentoring others, and continuously learning new tools and technologies to build impactful products.
+              </p>
+              {/* <div className="h-6 w-full" aria-hidden="true"></div> */}
             </motion.div>
 
             <div
               onClick={toggleExpand}
-              className="absolute w-full text-center bottom-0 text-zinc-200 text-xs bg-zinc-900/30 cursor-pointer py-2 transition-all"
+              className="absolute w-full text-center text-white bottom-0 text-xs bg-zinc-900/30 cursor-pointer py-2 transition-all"
             >
               {expanded ? (
                 <>
@@ -242,7 +251,7 @@ const Home = () => {
             <div className="flex flex-col items-center gap-2">
               <button
                 onClick={handleResumeClick}
-                className="text-sm text-zinc-300 flex justify-center items-center gap-2 border border-zinc-300 px-2 py-1 rounded-md hover:bg-violet-200 hover:text-zinc-700 transition cursor-pointer"
+                className="text-sm text-zinc-300 flex justify-center items-center gap-2 border border-gray-400 px-2 py-1 rounded-md hover:bg-violet-200 hover:text-zinc-700 transition cursor-pointer"
               >
                 <CgFileDocument />
                 Resume
@@ -283,13 +292,13 @@ const Home = () => {
               className="text-sm hover:text-zinc-300 flex justify-center items-center gap-2 border hover:bg-zinc-900 border-zinc-300 px-2 py-1 rounded-md bg-violet-200 text-zinc-700 transition cursor-pointer"
             >
               <PiTelegramLogoThin />
-              Get in touch
+              Get In Touch
             </a>
           </div>
 
           <motion.div className="mt-4" variants={containerVariants}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-300 mb-6 text-center sm:text-left border-zinc-700 pt-10">
-              Projects
+            <h2 className="text-md sm:text-xl font-bold text-white mb-6 text-center sm:text-left border-zinc-700 pt-10">
+              Notable Projects
             </h2>
 
             <motion.div

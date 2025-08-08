@@ -14,13 +14,13 @@ const Card = ({ project }) => {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.03 }}
+      whileHover={{ scale: 1 }}
       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-      className="bg-zinc-900 text-zinc-300 flex flex-col justify-between rounded-xl shadow-md border border-zinc-700 w-full h-full overflow-hidden"
+      className="p-4 bg-white/3 text-gray-400 flex flex-col justify-between rounded-xl shadow-md border border-zinc-700 w-full h-full overflow-hidden"
     >
-      <div className="flex flex-col px-5 py-4 flex-grow">
+      <div className="flex flex-col px-5 py-4 flex-grow gap-2">
         <div className="flex items-start justify-between">
-          <h3 className="text-base font-semibold text-zinc-100 line-clamp-1">
+          <h3 className="text-xl font-semibold text-zinc-100 line-clamp-1 tracking-tighter">
             {title}
           </h3>
           <div className="flex items-center gap-3">
@@ -30,7 +30,7 @@ const Card = ({ project }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Live project link"
-                className="text-zinc-400 hover:text-green-400 transition-colors"
+                className="text-zinc-400 hover:text-green-400 transition-colors mx-1"
               >
                 <FiGlobe className="text-lg" />
               </a>
@@ -41,7 +41,7 @@ const Card = ({ project }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub repository"
-                className="text-zinc-400 hover:text-indigo-400 transition-colors"
+                className="text-zinc-400 hover:text-indigo-400 transition-colors mx-1"
               >
                 <FiGithub className="text-lg" />
               </a>
@@ -49,7 +49,7 @@ const Card = ({ project }) => {
           </div>
         </div>
 
-        <p className="text-sm text-zinc-400 leading-snug line-clamp-3 mt-2 mb-4">
+        <p className="text-sm text-zinc-200 leading-snug line-clamp-3 mt-2 mb-4">
           {description}
         </p>
 
@@ -59,7 +59,7 @@ const Card = ({ project }) => {
               key={index}
               whileHover={{ scale: 1.1 }}
               transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-              className="text-xs font-medium bg-zinc-800 text-zinc-300 px-2 py-1 rounded hover:bg-zinc-700 hover:text-white transition"
+              className="text-xs font-medium bg-gray-800 text-gray-400 px-2 py-1 rounded hover:bg-zinc-700 hover:text-white transition"
             >
               {tech}
             </motion.span>
