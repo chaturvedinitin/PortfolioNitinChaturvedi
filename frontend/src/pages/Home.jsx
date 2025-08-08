@@ -7,7 +7,7 @@ import { CgFileDocument } from "react-icons/cg";
 import { PiMicrophoneLight, PiTelegramLogoThin } from 'react-icons/pi';
 import Card from '../components/Card';
 import Header from '../components/Header';
-
+import Stack from '../components/Stack';
 
 const Home = () => {
   const stackStyle = "text-xs bg-zinc-700 text-gray-400 font-semibold py-1 px-2 rounded-md inline-flex items-center whitespace-nowrap m-1";
@@ -183,7 +183,7 @@ const Home = () => {
       }}
     >
       <div className="container mx-auto max-w-3xl">
-              <Header/>
+        <Header />
         <div className="flex flex-col min-h-screen px-6 sm:px-8 lg:px-10 py-6">
           <motion.div
             initial={{ opacity: 0, y: -40 }}
@@ -215,17 +215,17 @@ const Home = () => {
             className={`relative mt-10 text-base sm:text-md text-gray-300 leading-loose tracking-wider border-y-2 border-zinc-700 overflow-hidden`}
           >
             <motion.div
-              animate={{ maxHeight: expanded ? 500 : 80}}
+              animate={{ maxHeight: expanded ? 500 : 80 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
-              className="overflow-hidden p-6"
+              className="overflow-hidden px-6"
             >
-              <p>
+              <p className='my-6'>
                 I'm a full-stack developer with a drive for building beautiful, functional, and scalable web applications.
               </p>
-              <p>
+              <p className='my-4'>
                 I love to jump into projects and learn from those around me to refine my skills as a student and developer.
               </p>
-              <p>
+              <p className='my-6'>
                 Enthusiastic about <strong>competitive coding</strong>. I also enjoy contributing to open-source projects, mentoring others, and continuously learning new tools and technologies to build impactful products.
               </p>
               {/* <div className="h-6 w-full" aria-hidden="true"></div> */}
@@ -296,7 +296,11 @@ const Home = () => {
             </a>
           </div>
 
-          <motion.div className="mt-4" variants={containerVariants}>
+          <div className='mt-12'>
+            <Stack />
+          </div>
+
+          <motion.div className="" variants={containerVariants}>
             <h2 className="text-md sm:text-xl font-bold text-white mb-6 text-center sm:text-left border-zinc-700 pt-10">
               Notable Projects
             </h2>
