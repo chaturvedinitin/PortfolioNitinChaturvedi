@@ -212,7 +212,7 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className={`relative mt-10 text-base sm:text-md text-gray-400 leading-loose tracking-wider border-y-2 border-zinc-700 overflow-hidden`}
+            className={`relative mt-10 text-base sm:text-md text-gray-300 leading-loose tracking-wider border-y-2 border-zinc-700 overflow-hidden`}
           >
             <motion.div
               animate={{ maxHeight: expanded ? 500 : 80}}
